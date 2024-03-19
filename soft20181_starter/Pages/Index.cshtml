@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="main-content">
+    <div class="text-on-left">
+        <h1><span class="highlight-red">EXPLORE</span> A WORLD OF YOUR FAVOURITE EVENTS!</h1>
+        <P>Elevate your experiences with us.</P>
+        <p>Seamless events.Upfront clarity.Personalized recommendations.</p>
+        <p>We're your gateway to unforgettable moments and tailored entertainment.</p>
+        <br><p>Redefining the way<span class="highlight-red"> YOU</span> enjoy every occasion.</p>
+    </div>
+
+    <div class="video">
+        <video autoplay loop muted plays-inline class="background-clip">
+            <source src="~/videos/video.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="content">
+            <a asp-page="/Booking" class="start-booking-button">Start Booking</a>
+        </div>
+    </div>
+</div>
+
+<div class="about-us">
+    <div class="about-us-image">
+        <img src="~/images/about1.jpg" alt="about us image">
+    </div>
+    <div class="about-us-description">
+        <h1>WHO ARE WE AND WHAT WE DO</h1>
+        <p>We are here so that you can view a carefully curated list of the most popular live events happening in your city and around. Our portal keeps you informed about all the most exciting events, from small-scale concerts to large-scale festivals, so you never have to miss them. Wave goodbye to hidden fees and unforeseen occurrences. We offer clear booking procedures, up-front pricing, and a simple ticket purchasing process. We think that having clarity would help you concentrate on what really matters, which is having wonderful experiences.</p>
+    </div>
+</div>
+
+<div class="trending-subtitle">
+    <h2>Trending:</h2>
+</div>
+
+<div class="trending">
+    <div class="slider-trending">
+        <button id="prev-slide" class="slide-button">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="image-list">
+            <img src="~/images/trending1.jpg" alt="image-1" class="image-item">
+            <img src="~/images/trending2.jpg" alt="image-2" class="image-item">
+            <img src="~/images/trending3.jpg" alt="image-3" class="image-item">
+            <img src="~/images/trending4.jpg" alt="image-4" class="image-item">
+            <img src="~/images/trending5.jpg" alt="image-5" class="image-item">
+            <img src="~/images/trending6.jpg" alt="image-6" class="image-item">
+            <img src="~/images/trending7.jpg" alt="image-7" class="image-item">
+            <img src="~/images/trending8.jpg" alt="image-8" class="image-item">
+            <img src="~/images/trending9.jpg" alt="image-9" class="image-item">
+            <img src="~/images/trending10.jpg" alt="image-10" class="image-item">
+        </div>
+        <button id="next-slide" class="slide-button">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+    <div class="slider-scrollbar">
+        <div class="scrollbar-track">
+            <div class="scrollbar-thumb"></div>
+        </div>
+    </div>
+</div>
+

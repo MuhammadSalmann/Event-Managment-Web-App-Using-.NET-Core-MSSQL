@@ -1,0 +1,49 @@
+﻿@page
+@model soft20181_starter.Pages.BookingModel
+@{
+}
+
+<section class="banner">
+    <h2>BOOK YOUR EVENT NOW</h2>
+    <div class="card-container">
+        <div class="card-image"></div>
+
+        <div class="card-content">
+            <h3>Reservation</h3>
+            <form id="bookingForm">
+                <div class="form-row">
+                    <select name="events">
+                        <option value="" disabled selected>Event</option>
+                        <option value="Monday">DJ Experience</option>
+                        <option value="Tuesday">Rod Wave Concert</option>
+                        <option value="Wednesday">Easter Egg Hunt</option>
+                        <option value="Thursday">Bingo Night</option>
+                        <option value="Friday">Opera</option>
+                        <option value="Saturday">Jazz Night</option>
+                        <option value="Sunday">Runway</option>
+                    </select>
+
+                    <select name="location">
+                        <option value="" disabled selected>Location</option>
+                        <option value="London">London</option>
+                        <option value="Birmingham">Birmingham</option>
+                        <option value="Liverpool">Liverpool</option>
+                        <option value="Nottingham">Nottingham</option>
+                        <option value="Manchester">Manchester</option>
+                        <option value="Leeds">Leeds</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                </div>
+
+                <div class="form-row">
+                    <input type="number" placeholder="Tickets" min="1" max="6" required>
+                    <input type="submit" value="BOOK TICKETS">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

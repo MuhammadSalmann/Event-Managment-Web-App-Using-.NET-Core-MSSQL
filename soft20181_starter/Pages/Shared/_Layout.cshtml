@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>@ViewData["Title"] - EventXplorer</title>
+</head>
+<body>
+
+    <header>
+        <nav class="header">
+            <a class="logo" asp-page="/Index">eventXplorer</a>
+            <div class="navbar">
+                <a asp-page="/Index">Home</a>
+                <a asp-page="/Locations">Locations</a>
+                <a asp-page="/Events">Events</a>
+                <a asp-page="/Gallery">Gallery</a>
+                <a asp-page="/Contact">Contact</a>
+            </div>
+
+            <div class="search-container">
+                <input type="checkbox" id="check" hidden>
+                <label for="check" class="icon-search">
+                    <i class="fas fa-magnifying-glass fa-beat" style="color: #ff0000;"></i>
+                </label>
+                <div class="search-overlay">
+                    <input type="text" id="search-input" placeholder="Search...">
+                    <label for="check" class="icon-close">
+                        <i class="fas fa-times" style="color: #ff0000;"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <div class="info-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: eventXplorer@gmail.com</p>
+                    <p>Number: 07366816348</p>
+                    <p>Address: 46 Whitehouse, Pleasure Gardens NW3 2BL</p>
+                </div>
+                <div class="info-section">
+                    <h3>Quick Links</h3>
+                    <ul class="links-list">
+                        <li><a asp-page="/Index">Home</a></li>
+                        <li><a asp-page="/Locations">Locations</a></li>
+                        <li><a asp-page="/Events">Events</a></li>
+                        <li><a asp-page="/Gallery">Gallery</a></li>
+                        <li><a asp-page="/Booking">Make a Booking</a></li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>Follow Us</h3>
+                    <div>
+                        <span class="social-handle"><i class="fab fa-instagram"></i> eventXplorer_official</span>
+                    </div>
+                    <div>
+                        <span class="social-handle"><i class="fab fa-twitter"></i> @@eventXplorer_official</span>
+                    </div>
+                    <div>
+                        <span class="social-handle"><i class="fab fa-facebook"></i> Event X Plorer</span>
+                    </div>
+                </div>
+            <p class="footer-copywrite">&copy; 2023 EventXplorer. All Rights Reserved.</p>
+    </footer>
+
+    <script src="~/js/site.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-E/3xLrO6n7VpMl+j68w85IDyvb9lvZbT3Q7Wo8w6q5Bp5xlmyekyEub9iGkUaNRVxlqF4kN1ewk/GqsU4ZlbdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
