@@ -7,11 +7,12 @@
     <h1>Our Events</h1>
 </div>
 
-<div class="search-container">
-    <i class="fas fa-map-marker-alt"></i>
-    <input type="text" id="searchInput" placeholder="Search events..." />
-    <!-- Updated button element with an id -->
-    <button id="searchButton">Search</button>
+<div style="display: flex; justify-content: space-evenly; align-items: center;" class="search-container">
+    <i class="fas fa-map-marker-alt fa-lg"></i>
+    <center>
+        <input style="width: 70vw;" type="text" id="searchInput" placeholder="Search events..." />
+    </center>
+    <button class="btn btn-primary" id="searchButton">Search</button>
 </div>
 
 <section class="event-list">
@@ -256,3 +257,19 @@
     </div>
 </section>
 
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        var input = this.value.toLowerCase();
+        var cards = document.getElementsByClassName('event-card');
+
+        for (var i = 0; i < cards.length; i++) {
+            var title = cards[i].getElementsByClassName('event-info')[0].getElementsByTagName('h2')[0].innerText.toLowerCase();
+            if (title.includes(input)) {
+                cards[i].style.display = 'block';
+            } else {
+                cards[i].style.display = 'none';
+            }
+        }
+    });
+
+</script>
