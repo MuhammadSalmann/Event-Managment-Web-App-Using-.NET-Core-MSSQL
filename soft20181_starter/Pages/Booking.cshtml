@@ -10,17 +10,17 @@
 
         <div class="card-content">
             <h3>Reservation</h3>
-            <form id="bookingForm">
+            <form id="bookingForm" method="POST">
                 <div class="form-row">
                     <select name="events">
                         <option value="" disabled selected>Event</option>
-                        <option value="Monday">DJ Experience</option>
-                        <option value="Tuesday">Rod Wave Concert</option>
-                        <option value="Wednesday">Easter Egg Hunt</option>
-                        <option value="Thursday">Bingo Night</option>
-                        <option value="Friday">Opera</option>
-                        <option value="Saturday">Jazz Night</option>
-                        <option value="Sunday">Runway</option>
+                        <option value="DJ Experience">DJ Experience</option>
+                        <option value="Rod Wave Concert">Rod Wave Concert</option>
+                        <option value="Easter Egg Hunt">Easter Egg Hunt</option>
+                        <option value="Bingo Night">Bingo Night</option>
+                        <option value="Opera">Opera</option>
+                        <option value="Jazz Night">Jazz Night</option>
+                        <option value="Runway">Runway</option>
                     </select>
 
                     <select name="location">
@@ -35,15 +35,33 @@
                 </div>
 
                 <div class="form-row">
-                    <input type="text" id="fullName" placeholder="Full Name" required>
-                    <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                    <input type="text" id="fullName" name="name" value="@Model.Booking.Name" placeholder="Full Name" required>
+                    <input type="tel" id="phoneNumber" name="tel" value="@Model.Booking.Phone" placeholder="Phone Number" required>
                 </div>
 
                 <div class="form-row">
-                    <input type="number" placeholder="Tickets" min="1" max="6" required>
+                    <input type="number" name="tickets" value="@Model.Booking.Tickets" placeholder="Tickets" min="1" max="6" required>
                     <input type="submit" value="BOOK TICKETS">
                 </div>
             </form>
         </div>
     </div>
 </section>
+
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        var eventSelect = document.getElementById('eventSelect');
+        var locationSelect = document.getElementById('locationSelect');
+
+        var selectedEvent = eventSelect.value;
+        var selectedLocation = locationSelect.value;
+
+        // Assign selected values to Model
+    @Model.Booking.Event = ' + JSON.stringify(selectedEvent) + ';
+    @Model.Booking.Location = ' + JSON.stringify(selectedLocation) + ';
+
+         event.target.submit();
+    });
+</script>

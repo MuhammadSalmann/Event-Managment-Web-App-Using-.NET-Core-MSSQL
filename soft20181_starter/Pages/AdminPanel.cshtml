@@ -1,4 +1,42 @@
 ﻿@page
 @model soft20181_starter.Pages.AdminPanelModel
+
 @{
 }
+
+<div class="admin-panel-wrapper">
+    <center><h1>Welcome Admin</h1></center>
+    <h2>Bookings</h2>
+    <br/>
+<table class="admin-table table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Tickets</th>
+            <th>Event</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.bookings)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Phone</td>
+                <td>@item.Tickets</td>
+                <td>@item.Event</td>
+                <td>@item.Location</td>
+                <td>
+                    <a class="btn btn-outline-primary" href="/UpdateBooking?id=@item.Id">Edit</a>
+                        <a class="btn btn-outline-danger" href="/DeleteBooking?id=@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+
+</div>

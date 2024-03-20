@@ -1,0 +1,79 @@
+﻿@page
+@model soft20181_starter.Pages.UpdateBookingModel
+@{
+}
+
+<div class="admin-panel-wrapper">
+    <br>
+    <h2>Edit Booking Id: @Model.Booking.Id</h2>
+
+    <form id="bookingForm2" method="POST">
+        <input type="hidden" name="id" value="@Model.Booking.Id" /> 
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="name" value="@Model.Booking.Name" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Phone</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="phone" value="@Model.Booking.Phone" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Tickets</label>
+            <div class="col-sm-6">
+                <input type="number" class="form-control" name="tickets" value="@Model.Booking.Tickets" />
+            </div>
+        </div>
+        <div class="form-row">
+            <select name="events">
+                <option value="@Model.Booking.Event">@Model.Booking.Event</option>
+                <option value="DJ Experience">DJ Experience</option>
+                <option value="Rod Wave Concert">Rod Wave Concert</option>
+                <option value="Easter Egg Hunt">Easter Egg Hunt</option>
+                <option value="Bingo Night">Bingo Night</option>
+                <option value="Opera">Opera</option>
+                <option value="Jazz Night">Jazz Night</option>
+                <option value="Runway">Runway</option>
+            </select>
+
+            <select name="location">
+                <option value="@Model.Booking.Location">@Model.Booking.Location</option>
+                <option value="London">London</option>
+                <option value="Birmingham">Birmingham</option>
+                <option value="Liverpool">Liverpool</option>
+                <option value="Nottingham">Nottingham</option>
+                <option value="Manchester">Manchester</option>
+                <option value="Leeds">Leeds</option>
+            </select>
+        </div>
+        <div class="row mb-3">
+            <div class="offset-sm-2 col-sm-2 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="offset-sm-2 col-sm-2 d-grid">
+                <a asp-page="/AdminPanel" role="button" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('bookingForm2').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        var eventSelect = document.getElementById('eventSelect');
+        var locationSelect = document.getElementById('locationSelect');
+
+        var selectedEvent = eventSelect.value;
+        var selectedLocation = locationSelect.value;
+
+        // Assign selected values to Model
+    @Model.Booking.Event = ' + JSON.stringify(selectedEvent) + ';
+    @Model.Booking.Location = ' + JSON.stringify(selectedLocation) + ';
+
+        event.target.submit();
+    });
+</script>

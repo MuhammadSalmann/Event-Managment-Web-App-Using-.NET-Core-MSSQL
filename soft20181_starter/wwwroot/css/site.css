@@ -1084,3 +1084,7 @@ input[type="password"] {
     .submit-btn:hover {
         background-color: #45a049;
     }
+
+.admin-panel-wrapper {
+    margin-top: 15vh;
+}

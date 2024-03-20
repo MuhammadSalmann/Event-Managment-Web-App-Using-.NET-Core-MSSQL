@@ -1,0 +1,13 @@
+﻿@page
+@using Microsoft.Data.SqlClient;
+@using soft20181_starter.Business_Logic;
+
+@{
+    int id = Convert.ToInt32(Request.Query["id"]);
+    try
+    {
+        EventOperation.DeleteBooking(id);
+        Response.Redirect("/AdminPanel");
+    }
+    catch (Exception ex) { return;  }
+}
