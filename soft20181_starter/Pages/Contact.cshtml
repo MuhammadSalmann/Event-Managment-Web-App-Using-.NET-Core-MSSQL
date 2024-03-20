@@ -10,34 +10,34 @@
     <div class="contact-box">
         <div class="contact-left">
             <h3>Send Your Request</h3>
-            <form id="contactForm" onsubmit="return validateForm()">
+            <form method="POST" id="contactForm" onsubmit="return validateForm()">
                 <div class="input-row">
                     <div class="input-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" pattern="[A-Za-z ]+" required>
+                        <input type="text" id="name" name="name" pattern="[A-Za-z ]+" value="@Model.ContactInfo.Name" required>
                         <small>Please enter a valid name.</small>
                     </div>
                     <div class="input-group">
                         <label for="phone">Phone</label>
-                        <input type="text" id="phone" name="phone" pattern="[0-9]+" minlength="11" maxlength="11" required>
+                        <input type="text" id="phone" name="phone" pattern="[0-9]+" value="@Model.ContactInfo.Phone" minlength="11" maxlength="11" required>
                         <small>Please enter a valid UK phone number.</small>
                     </div>
                 </div>
                 <div class="input-row">
                     <div class="input-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" value="@Model.ContactInfo.Email" required>
                         <small>Please enter a valid email address.</small>
                     </div>
                     <div class="input-group">
                         <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="subject" name="subject" value="@Model.ContactInfo.Subject" required>
                     </div>
                 </div>
 
                 <div class="input-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <textarea id="message" name="message" value="@Model.ContactInfo.Message" rows="5" placeholder="Your Message" required></textarea>
                 </div>
 
                 <button type="submit">SEND</button>
