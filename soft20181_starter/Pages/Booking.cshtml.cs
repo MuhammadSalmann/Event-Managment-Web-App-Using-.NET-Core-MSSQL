@@ -16,6 +16,14 @@ namespace soft20181_starter.Pages
 
         public void OnPost()
         {
+            var isLoggedIn = HttpContext.Session.GetString("IsLoggedIn");
+            if (isLoggedIn != "true")
+            {
+                TempData["ErrorMessage"] = "Not Logged In";
+                Response.Redirect("/SignIn");
+                return;
+            }
+
             Booking.Event = Request.Form["events"];
             Booking.Location = Request.Form["location"];
             Booking.Name = Request.Form["name"];

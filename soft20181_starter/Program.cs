@@ -3,7 +3,18 @@ using soft20181_starter.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Create Session For Authentication Work
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession(options =>
+{
+    // Configure session options here
+    options.Cookie.Name = ".EventXplorer.Session";
+    options.IdleTimeout = TimeSpan.FromMinutes(20); // Adjust the session timeout as needed
+    //options.Cookie.HttpOnly = true;
+    //options.Cookie.IsEssential = true;
+});
+//-----------------------------------------------------
+
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<DBHelper>(options => 
@@ -22,8 +33,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
+
+app.UseSession();  // For Session Important
 
 app.UseAuthorization();
 

@@ -1,0 +1,46 @@
+﻿@page
+@model soft20181_starter.Pages.AdminAccountsModel
+@{
+}
+
+
+<div class="admin-panel-wrapper">
+    <a class="btn btn-outline-success" asp-page="/AdminPanel">Bookings</a>
+    <a class="btn btn-outline-dark">Accounts</a>
+    <center><h1>Welcome Admin</h1></center>
+    <h2>Accounts</h2>
+    <br />
+    <table class="admin-table table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.accounts)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>@item.Role</td>
+
+                    @if (@item.Id != 1)
+                    {
+                        <td>
+                            <a class="btn btn-outline-primary" href="/UpdateAccount?id=@item.Id">Edit</a>
+                            <a class="btn btn-outline-danger" href="/DeleteAccount?id=@item.Id">Delete</a>
+                        </td>
+                    }
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

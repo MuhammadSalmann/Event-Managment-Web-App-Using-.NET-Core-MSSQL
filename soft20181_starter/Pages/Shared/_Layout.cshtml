@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +23,10 @@
                 <a asp-page="/Events">Events</a>
                 <a asp-page="/Gallery">Gallery</a>
                 <a asp-page="/Contact">Contact</a>
-                <a asp-page="/AdminPanel">Admin</a>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("UserRole") == "admin")
+                {
+                    <a asp-page="/AdminPanel">Admin</a>
+                }
                 <a asp-page="/SignIn"><i class="fas fa-user fa-beat" style="color: #ff0000;"></i></a>
                 <a asp-page="/Register"><i class="fas fa-user-plus fa-beat" style="color: #ff0000;"></i></a>
             </div>
