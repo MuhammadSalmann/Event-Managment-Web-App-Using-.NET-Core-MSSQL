@@ -6,7 +6,7 @@
     Role NVARCHAR(50) NOT NULL
 );
 
-INSERT INTO Accounts (Id, Name, Email, Password, Role) VALUES
-(1, 'Salman', 'admin@example.com', 'admin', 'admin'),
-(2, 'Jane Smith', 'jane@example.com', 'password456', 'user'),
-(3, 'Alice Johnson', 'alice@example.com', 'password789', 'user');
+INSERT INTO Accounts (Name, Email, Password, Role) VALUES
+('Tia', 'admin@example.com', 'admin', 'admin'),
+('Jane Smith', 'jane@example.com', 'password456', 'user'),
+('Alice Johnson', 'alice@example.com', 'password789', 'user');
