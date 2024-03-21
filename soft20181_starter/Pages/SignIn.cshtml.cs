@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using soft20181_starter.Business_Logic;
 using soft20181_starter.Models;
 
@@ -34,6 +35,9 @@ namespace soft20181_starter.Pages
                 }
                 // Storing in Role in Session
                 _httpContextAccessor.HttpContext.Session.SetString("UserRole", Account.Role);
+                // Set session variable to indicate that the user is logged in
+                HttpContext.Session.SetString("IsLoggedIn", "true");
+                
             }
             catch(Exception ex) { return; }
             Response.Redirect($"/index?role={Account.Role}&name={Account.Name}");
