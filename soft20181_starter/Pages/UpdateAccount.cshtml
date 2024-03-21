@@ -1,0 +1,40 @@
+﻿@page
+@model soft20181_starter.Pages.UpdateAccountModel
+@{
+}
+
+
+<div class="admin-panel-wrapper">
+    <br>
+    <h2>Edit Account Id: @Model.Account.Id</h2>
+
+    <form id="bookingForm2" method="POST">
+        <input type="hidden" name="id" value="@Model.Account.Id" />
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="name" value="@Model.Account.Name" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-6">
+                <input type="email" class="form-control" name="email" value="@Model.Account.Email" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="password" value="@Model.Account.Password" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="offset-sm-2 col-sm-2 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="offset-sm-2 col-sm-2 d-grid">
+                <a asp-page="/AdminAccounts" role="button" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
